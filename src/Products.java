@@ -13,10 +13,25 @@ public class Products {
     private String productName;
     static int productID = 0;
     
-    Products(int i, int c, String n){
-        this.productCost = c;
-        this.productName = n;
+    Products(String name, int i){
+        this.productName = name;
+        this.quanity = i;
         productID += 1;
+        totalCost(i, name);
+    }
+    
+    private void totalCost(int q, String n){
+        
+        switch(n){
+            case "Black" : productCost = 10 * q; break;
+            case "Americano" : productCost = 15 * q; break;
+            case "Cappuccino" : productCost = 20 * q; break;
+            case "Espresso" : productCost = 5 * q; break;
+            case "Latte" : productCost = 25 * q; break;
+            case "Mocca" : productCost = 30 * q; break;
+            default: break;
+        }
+        
     }
     
     public int getCost(){

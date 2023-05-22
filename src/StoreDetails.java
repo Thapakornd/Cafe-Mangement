@@ -7,17 +7,26 @@
  *
  * @author gusth
  */
+
+import java.util.ArrayList;
+
 public class StoreDetails {
     
-    private String SName = "Testing Cafe";
+    private String SName;
     static int total = 0;
-    private Billing[] totalBill;
+    public static ArrayList<Billing> totalBill = new ArrayList<>();
+    
+    StoreDetails(String n){
+        this.SName = n;
+    }
     
     public String getName(){
         return this.SName;
     }
     
-    public void getBilling(){
-    
+    public Billing[] getBilling(){
+        Billing[] temp = new Billing[totalBill.size()];
+        temp = totalBill.toArray(temp);
+        return temp;
     }
 }
